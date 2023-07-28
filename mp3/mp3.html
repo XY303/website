@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ASMA</title>
+        <script src="\js\mp3list.js"></script>
+    </head>
+    <body>
+        <h1 id="head"></h1>
+        <!-- 使用 <audio> 标签嵌入 MP3 文件 -->
+        <audio id="audioPlayer" controls>您的浏览器不支持音频播放。
+    </audio>
+        <button onclick="playPreviousSong()">上一首</button>
+        <button onclick="playNextSong()">下一首</button>
+        <!-- 用于显示歌词的区域 -->
+        <div id="lyrics"></div>
+    </body>
+</html>
