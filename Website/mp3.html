@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>>xy303 私人音乐播放器</title>
+        <link rel="stylesheet" href="\css\default.css">
+    </head>
+    <body>
+        <h1 id="head"></h1>
+        <h2 id="head2"></h2>
+        <!--<input type="number" id="userEnter"  placeholder="输入歌曲序号" min=0 onkeydown="if(event.keyCode==13) {userEnter()}"> -->
+        <!-- 使用 <audio> 标签嵌入 MP3 文件 -->
+        <audio id="audioPlayer" controls>您的浏览器不支持音频播放。
+    </audio>
+        <button onclick="playPreviousSong()" class="Button">上一首</button>
+        <button onclick="playNextSong()" class="Button">下一首</button>
+        <button onclick="playMod()" class="Button" id="playModButton">顺序播放</button>
+        <!-- 用于显示歌词的区域 -->
+        <div id="lyrics"></div>
+        <script>
+			var property = {
+                dir:"/website/mp3/",
+                format:".mp3"
+            }
+        </script>
+        <script src="/js/fileslist.js"></script>
+        <script src="/js/play_control.js"></script>
+    </body>
+</html>

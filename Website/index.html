@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>xy303 私人网站</title>
+    <link rel="stylesheet" href="/css/default.css">
+</head>
+<body>
+    <h1 id="head">Hello World!</h1>
+    <button onclick="window.open('mp3.html')" class="Button">>进入:xy303私人音乐播放器</button>
+    <button onclick="gotoFTP()" class="Button">>进入:xy303私人FTP</button>
+    <br>
+    <script src="/js/eihei.js"></script>
+    <script>
+        function gotoFTP() {
+            window.location = "http://" + window.location.hostname + ':5623';
+        }
+    </script>
+
+</body>
+</html>

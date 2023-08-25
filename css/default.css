@@ -1,0 +1,28 @@
+body {
+    background-color: #656e7a;
+}
+
+.Button {
+}
+
+/*设置歌词显示区域*/
+#lyrics {
+    width: suto;
+    padding: 5px;
+    border: 3px solid gray;
+    margin: 10px;
+    height:90px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+/* 歌词正常状态 */
+.lyric-line {
+    color: #fae6e6;
+}
+
+/* 歌词高亮状态 */
+.lyric-line.active {
+    color: red;
+    font-size: 25px;
+}

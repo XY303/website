@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>IPv6 Address Example</title>
+    </head>
+    <body>
+        <h1 id="head1"></h1>
+        <h2 id="head2"></h2>
+        <h3 id="head3"></h3>
+        <script src="js/ipv6test.js"></script>
+        <script>
+            document.getElementById("head3").addEventListener("click", IPV6);
+            document.getElementById("head1").innerText = "查验IP地址";
+            const LAN = ["127.0.0.1", "192.168.0.151", "192.168.195.244"];
+            for (let n = 0; n <= LAN.length; n++) {
+                if (window.location.hostname.includes(LAN[n])) {
+                    window.location = "http://" + window.location.hostname + "/website";
+                }
+            }
+            document.getElementById("head1").innerText = "检查ipv6";
+            // 检查ipv6
+            testIPv6Support().then(function(supported) {
+                if (supported) {
+                    ipv6Flag = true;
+                    document.getElementById("head2").innerText = "你的网络支持ipv6";
+                    IPV6();
+                } else {
+                    document.getElementById("head1").innerText = "无法继续";
+                    document.getElementById("head2").innerText = "你的网络不支持IPv6(此测试结果可能无效)";
+                    document.getElementById("head3").innerText = "尝试继续访问";
+                }
+            });
+            function IPV6() {
+                document.getElementById("head1").innerText = "获取ipv6";
+                // 创建一个XMLHttpRequest对象
+                const xhr = new XMLHttpRequest();
+
+                // 配置一个GET请求，获取服务器的IPv6地址
+                xhr.open("GET", "/php/get_ipv6.php", true);
+
+                // 定义请求完成后的回调函数
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        if (isIPv6Address(xhr.responseText)) {
+                            setTimeout(function() {
+                                window.location = "http://[" + xhr.responseText + ']/website';
+                            }, 1000)
+                            document.getElementById("head1").innerText = "重定向...";
+                        } else {
+                            document.getElementById("head1").innerText = "ipv6获取失败,点击重试";
+                        }
+
+                    } else {
+                        document.getElementById("head3").innerText = "点击重试";
+                    }
+                }
+                ;
+                // 发送请求
+                xhr.send();
+            }
+        </script>
+    </body>
+</html>
